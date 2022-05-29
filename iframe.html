@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/image_display.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/sha1.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/rot13.js"></script>
+    <script type="text/javascript" src="js/b64encode.js"></script>
+    <script type="text/javascript" src="js/b64decode.js"></script>
+    <script type="text/javascript" src="js/urlencode.js"></script>
+    <script type="text/javascript" src="js/urldecode.js"></script>
+    <script type="text/javascript" src="js/hexencode.js"></script>
+    <script type="text/javascript" src="js/utf8e.js"></script>
+    <script type="text/javascript" src="js/hexxdecode.js"></script>
+    <script type="text/javascript" src="js/addslash.js"></script>
+    <script type="text/javascript" src="js/stripslash.js"></script>
+    <script type="text/javascript" src="js/stripspaces.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+</head>
+
+<body id="bc" style="width: 720px;height: 80px">
+
+<div>
+<ul class="menu" id="menu">
+    <li><a href="#" class="menulink" id="sql" style="padding-left:38%;">SQL</a>
+        <ul id="sqloptions">
+		
+		<li class="btn" id="unionselect" ><a href="#">Union Statement</a></li>
+        <li class="btn" id="spaceinline" ><a href="#">Space to Inline</a></li>
+            <li><a href="#" class="sub" >MySQL</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="basicinfo"><a href="#">Basic Column</a></li>
+                    <li class="btn" id="utf8"><a href="#">Using UTF-8</a></li>
+                    <li class="btn" id="latin1"><a href="#">Using Latin1</a></li>
+                    <li class="btn" id="mysqlchar"><a href="#">MySQL Char()</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="sub">MsSQL</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="mssqlchar"><a href="#">MsSQL Char()</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="sub">Oracle</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="oraclechar"><a href="#">Oracle Char()</a></li>
+                </ul>
+            </li>
+			<li>
+			<a href="#" class="sub">Buffer Overflow</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="buffer128"><a href="#">128</a></li>
+                            <li class="btn" id="buffer256" ><a href="#">256</a></li>
+                            <li class="btn" id="buffer512" ><a href="#">512</a></li>
+                            <li class="btn" id="buffer1024" ><a href="#">1024</a></li>
+                            <li class="btn" id="buffer2048"><a href="#">2048</a></li>
+                            <li class="btn" id="buffercustom"><a href="#">Custom</a></li>
+                        </ul>
+                 </li>
+			<li>
+                <a href="#" class="sub">Outer File</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="filepriv"><a href="#">File Privileges</a></li>
+					<li class="btn" id="loadfile"><a href="#">Load File</a></li>
+					<li class="btn" id="intooutfile"><a href="#">Into...</a></li>
+
+                </ul>
+            </li>
+              <li>
+                <a href="#" class="sub">PHP Script</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="upscr"><a href="#">Uploader Script</a></li>
+					<li class="btn" id="tinys"><a href="#">Tiny Shell</a></li>
+					<li class="btn" id="cmdscr"><a href="#">CMD Script</a></li>
+					<li class="btn" id="phpb"><a href="#">PHP Backdoor</a></li>
+					<li class="btn" id="pbc"><a href="#">Post Backdoor</a></li>
+					<li class="btn" id="whoami"><a href="#">CMD whoami</a></li>
+                </ul>
+            </li>
+            <li> 
+        </ul>
+    </li>
+	    <li><a href="#" class="menulink" id="null" style="padding-left:18%;">nullMenu</a>
+        <ul id="sqloptions">
+            <li>
+			<a href="#" class="sub" >Column Count</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="ordrby"><a href="#">Order By</a></li>
+                    <li class="btn" id="grpby"><a href="#">Group By</a></li>
+                    <li class="btn" id="prcdr"><a href="#">Procedure()</a></li>
+                    <li class="btn" id="slctfrm"><a href="#">SELECT* FROM*</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="sub">Union Count</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="intp"><a href="#">INT(+)</a></li>
+				    <li class="btn" id="intn"><a href="#">INT()</a></li>
+				    <li class="btn" id="nulluc"><a href="#">NULL</a></li>
+					<li class="btn" id="nullb"><a href="#">(NULL)</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="sub">Basic Statement</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="usrdv"><a href="#">User|DB|Version</a></li>
+					<li class="btn" id="cdtbs"><a href="#">Count() DataBase</a></li>
+                    <li><a href="#" class="sub">Privileges</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="isprvlg"><a href="#">I_S.Privileges</a></li>
+                            <li class="btn" id="prvlgt" ><a href="#">System Table</a></li>
+                            
+                        </ul>
+                    </li>
+					<li class="btn" id="rnnq"><a href="#">Running Query</a></li>
+                </ul>
+            </li>
+			<li>
+                <a href="#" class="sub">DataBases</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="dbgrpcnt"><a href="#">Group Concat</a></li>
+					<li class="btn" id="dbgrpos"><a href="#">One Shot</a></li>
+                </ul>
+            </li>
+			<li>
+                <a href="#" class="sub">Tables</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="tblgrpc"><a href="#">Group Concat</a></li>
+					<li class="btn" id="tblon"><a href="#">One Shot</a></li>
+                </ul>
+            </li>
+			<li>
+                <a href="#" class="sub">Columns</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="clmngrc"><a href="#">Group Concat</a></li>
+					<li class="btn" id="clmnon"><a href="#">One Shot</a></li>
+                </ul>
+            </li>
+			<li>
+                <a href="#" class="sub">Data Extract</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="dtexgrpc"><a href="#">Group Concat</a></li>
+					<li class="btn" id="dtexos"><a href="#">One Shot</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="sub">DIOS Menu</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li><a href="#" class="sub">Dios Basic</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="dmnmdbl"><a href="#">By MadBlood</a></li>
+                            <li class="btn" id="dmtpro" ><a href="#">By T-Pro</a></li>
+                            <li class="btn" id="dmdrzr" ><a href="#">By Dr.Z3r0</a></li>
+                            <li class="btn" id="dmzen" ><a href="#">By Zen</a></li>
+                            <li class="btn" id="dmajkr"><a href="#">By Ajkaro</a></li>
+							<li class="btn" id="dmrmm"><a href="#">By Rummy</a></li>
+							<li class="btn" id="dmshrf"><a href="#">By Shariq</a></li>
+							<li class="btn" id="dmhllr"><a href="#">By H3LL4R_H5H</a></li>
+							<li class="btn" id="dmdhn"><a href="#">By Dhani</a></li>
+                            <li class="btn" id="dmlkmd"><a href="#">LokoMedia</a></li>
+                        </ul>
+                    </li>
+  
+					<li><a href="#" class="sub">Dios WAF</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="dwtrjn"><a href="#">tr0jan WAF</a></li>
+                            <li class="btn" id="dwmdbld" ><a href="#">Madblood WAF</a></li>
+                            <li class="btn" id="dwmdblx" ><a href="#">Mblood WAF @x</a></li>
+                            <li class="btn" id="dwzen" ><a href="#">Zen WAF</a></li>
+                            <li class="btn" id="dwdhn"><a href="#">Dhani WAF</a></li>
+                       
+                        </ul>
+                    </li>
+					<li><a href="#" class="sub">Dios PostgSQL</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+							<li class="btn" id="dpstr" ><a href="#">Postgre All</a></li>
+                            <li class="btn" id="dpfpsr"><a href="#">For Postgre 8.4</a></li>
+                            <li class="btn" id="dpprstg" ><a href="#">For Postgre 9.1</a></li>          
+                        </ul>
+                    </li>
+                    <li><a href="#" class="sub">Dios MSSQL</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="dmrmm"><a href="#">By Rummy||Zen</a></li>
+                            
+                        </ul>
+                    </li>
+					<li><a href="#" class="sub">Dios Variable</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="dvbdnm"><a href="#">DB Names</a></li>
+                            <li class="btn" id="dvcnt" ><a href="#">DB Count</a></li>
+                            <li class="btn" id="dvprmtb" ><a href="#">DB Tables</a></li>
+                            <li class="btn" id="dvdbpc" ><a href="#">DB Columns</a></li>
+                            <li class="btn" id="dvinfst"><a href="#">Schema Tables</a></li>
+                            <li class="btn" id="dvinfscl"><a href="#">Schema Columns</a></li>
+                        </ul>
+                    </li>
+                
+                </ul>
+            </li> 
+
+                
+        </ul>
+    </li>
+			<li>
+				<a href="#" class="menulink" id="error" style="padding-left:3%;">Error|Double</a>
+        <ul id="sqloptions">
+            <li><a href="#" class="sub" >Error Based</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="edvrsn"><a href="#">Get Version</a></li>
+                    <li class="btn" id="erdtbs"><a href="#">Get Database</a></li>
+                    <li class="btn" id="edgtbl"><a href="#">Get Tables</a></li>
+                    <li class="btn" id="edclmn"><a href="#">Get Columns</a></li>
+					<li class="btn" id="eddt"><a href="#">Get Data</a></li>
+                </ul>
+            </li>
+			<li>
+                <a href="#" class="sub">MSSQL E.B</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="ermsgvrs"><a href="#">Get Version</a></li>
+					<li class="btn" id="ermsgtdb"><a href="#">Get Database</a></li>
+					<li class="btn" id="ermsusr"><a href="#">Get User</a></li>
+					<li class="btn" id="ermsds"><a href="#">MSSQL Dios</a></li>
+                </ul>
+            </li>
+					<li><a href="#" class="sub" >ErrorBase</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="advgr"><a href="#">Get Version</a></li>
+                    <li class="btn" id="advtbl"><a href="#">Get Tables</a></li>
+					
+					<li><a href="#" class="sub" >ErrorBase Dios</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="ebdon"><a href="#">(MySQL 5.5) 01</a></li>
+                    <li class="btn" id="ebdtw"><a href="#">(MySQL 5.5) 02</a></li>
+                    <li class="btn" id="ebdthr"><a href="#">(MySQL 5.5) 03</a></li>
+                    <li class="btn" id="ebdfr"><a href="#">(MySQL 5.5) 04</a></li>
+					<li class="btn" id="ebdfv"><a href="#">(MySQL 5.5) 05</a></li>
+					<li class="btn" id="ebdsx"><a href="#">(MySQL 5.5) 06</a></li>
+					<li class="btn" id="ebdsvn"><a href="#">(MySQL 5.5) 07</a></li>
+					<li class="btn" id="ebdegt"><a href="#">(MySQL 5.5) 08</a></li>
+					<li class="btn" id="ebdnn"><a href="#">(MySQL 5.5) 09</a></li>
+                </ul>
+				</li>
+                    
+                </ul>
+					</li>
+
+			            <li>
+                <a href="#" class="sub">xPath Value|XML</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li><a href="#" class="sub">xPath VALUE</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="xpvgtvrn"><a href="#">Get Version</a></li>
+                    <li class="btn" id="xpvgttb"><a href="#">Get Tables</a></li>
+                    <li class="btn" id="xpvclm"><a href="#">Get Columns</a></li>
+					<li class="btn" id="xpvgvrs"><a href="#">Get Data</a></li>
+                        </ul>
+                    </li>
+  
+					<li><a href="#" class="sub">xPath XML</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="xpvxgtvrn"><a href="#">Get Version</a></li>
+                    <li class="btn" id="xpvxgtbl"><a href="#">Get Tables</a></li>
+                    <li class="btn" id="xpvxgtcm"><a href="#">Get Columns</a></li>
+					<li class="btn" id="xpvxgdt"><a href="#">Get Data</a></li>
+                       
+                        </ul>
+                    </li>
+					
+                </ul>
+            </li>
+			<li><a href="#" class="sub" >PolyGon|Point</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="pgpgvrn"><a href="#">Get Version</a></li>
+                    <li class="btn" id="pgpgtbl"><a href="#">Get Tables</a></li>
+					
+			<li><a href="#" class="sub" >Point DIOS</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="pgpdo"><a href="#">PolyMulti Point 01</a></li>
+                    <li class="btn" id="pgpdt"><a href="#">PolyMulti Point 02</a></li>
+                    <li class="btn" id="pgpdtr"><a href="#">PolyMulti Point 03</a></li>
+                    <li class="btn" id="pgpdfr"><a href="#">PolyMulti Point 04</a></li>
+                </ul>
+            </li>
+
+                </ul>
+            </li>
+
+			<li><a href="#" class="sub" >Double Based</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="dbsgtvrn"><a href="#">Get Version</a></li>
+                    <li class="btn" id="dbsdbs"><a href="#">Get Database</a></li>
+                    <li class="btn" id="dbsgtbl"><a href="#">Get Tables</a></li>
+                    <li class="btn" id="dbsgtcl"><a href="#">Get Columns</a></li>
+					<li class="btn" id="dbsdta"><a href="#">Get Data</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+	    <li><a href="#" class="menulink" id="xss" style="padding-left:20%;">XSS||LFI</a>
+        <ul id="xssoptions">
+            <li class="btn" id="strtoascii" ><a href="#">CharCode()</a></li>
+            <li class="btn" id="alertxss" ><a href="#">XSS Statement</a></li>
+            <li class="btn" id="strtohtml" ><a href="#">HTML Characters</a></li>
+			            <li>
+                <a href="#" class="sub">XSS Payload</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li><a href="#" class="sub">XSS 1-10</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="xlfipon"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="xlfiptw" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="xlfipth" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="xlfipfr" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="xlfipfv" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="xlfipsx"><a href="#">Payload 06</a></li>
+							<li class="btn" id="xlfipsvn"><a href="#">Payload 07</a></li>
+							<li class="btn" id="xlfipght"><a href="#">Payload 08</a></li>
+							<li class="btn" id="xlfipnn"><a href="#">Payload 09</a></li>
+							<li class="btn" id="xlfiptn"><a href="#">Payload 10</a></li>
+							
+                        </ul>
+                    </li>
+  
+					<li><a href="#" class="sub">XSS 11-20</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="xlfipelv"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="xlfiptwl" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="xlfiptrn" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="xlfipfrn" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="xlfipfrr" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="xlfipsxn"><a href="#">Payload 06</a></li>
+							<li class="btn" id="xlfipsvnt"><a href="#">Payload 07</a></li>
+							<li class="btn" id="xlfipetn"><a href="#">Payload 08</a></li>
+							<li class="btn" id="xlfipnnt"><a href="#">Payload 09</a></li>
+							<li class="btn" id="xlfiptwn"><a href="#">Payload 10</a></li>
+                        </ul>
+                    </li>
+					<li><a href="#" class="sub">XSS 21-30</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="xlfiptwo"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="xlfipttw" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="xlfiptwnt" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="xlfiptwnf" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="xlfiptwnfv" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="xlfiptwnsx"><a href="#">Payload 06</a></li>
+							<li class="btn" id="xlfiptwsv"><a href="#">Payload 07</a></li>
+							<li class="btn" id="xlfiptwght"><a href="#">Payload 08</a></li>
+							<li class="btn" id="xlfiptwnn"><a href="#">Payload 09</a></li>
+							<li class="btn" id="xlfipttr"><a href="#">Payload 10</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="sub">XSS 31-40</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="xlfipfrt"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="xlfipfrttw" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="xlfipfrtth" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="xlfipfrtfr" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="xlfipfrtfv" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="xlfipfrtsx"><a href="#">Payload 06</a></li>
+							<li class="btn" id="xlfipfrtsvn"><a href="#">Payload 07</a></li>
+							<li class="btn" id="xlfipfrtght"><a href="#">Payload 08</a></li>
+							<li class="btn" id="xlfipfrtnn"><a href="#">Payload 09</a></li>
+							<li class="btn" id="xlfipfff"><a href="#">Payload 10</a></li>
+                        </ul>
+                    </li>
+					<li><a href="#" class="sub">XSS 41-50</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="xlfipfffo"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="xlfipffft" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="xlfipfffth" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="xlfipffffr" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="xlfipffffv" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="xlfipfffsx"><a href="#">Payload 06</a></li>
+							<li class="btn" id="xlfipfffsv"><a href="#">Payload 07</a></li>
+							<li class="btn" id="xlfipfffgt"><a href="#">Payload 08</a></li>
+							<li class="btn" id="xlfipfffnn"><a href="#">Payload 09</a></li>
+							<li class="btn" id="xlfipfsx"><a href="#">Payload 10</a></li>
+                        </ul>
+                    </li>
+                
+                </ul>
+            </li> 
+						            <li>
+                <a href="#" class="sub">LFI Payload</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li><a href="#" class="sub">LFI 1-10</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="lfipon"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="lfiptw" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="lfipthr" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="lfipfr" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="lfipfv" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="lfipsx"><a href="#">Payload 06</a></li>
+							<li class="btn" id="lfipsvn"><a href="#">Payload 07</a></li>
+							<li class="btn" id="lfipght"><a href="#">Payload 08</a></li>
+							<li class="btn" id="lfipnn"><a href="#">Payload 09</a></li>
+							<li class="btn" id="lfiptn"><a href="#">Payload 10</a></li>
+							
+                        </ul>
+                    </li>
+  
+					<li><a href="#" class="sub">LFI 11-20</a>
+                        <ul>
+                            <li class="btn" id="lfipel"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="lfiptlv" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="lfiptrn" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="lfipfrt" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="lfipft" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="lfipsxt"><a href="#">Payload 06</a></li>
+							<li class="btn" id="lfipsvt"><a href="#">Payload 07</a></li>
+							<li class="btn" id="lfipgtn"><a href="#">Payload 08</a></li>
+							<li class="btn" id="lfipntn"><a href="#">Payload 09</a></li>
+							<li class="btn" id="lfiptwn"><a href="#">Payload 10</a></li>
+                        </ul>
+                    </li>
+					<li><a href="#" class="sub">LFI 21-30</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="lfipton"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="lfipttw" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="lfiptft" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="lfiptfr" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="lfiptfv" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="lfiptsx"><a href="#">Payload 06</a></li>
+							<li class="btn" id="lfiptsvn"><a href="#">Payload 07</a></li>
+							<li class="btn" id="lfiptgt"><a href="#">Payload 08</a></li>
+							<li class="btn" id="lfiptnn"><a href="#">Payload 09</a></li>
+							<li class="btn" id="lfiptrnn"><a href="#">Payload 10</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="sub">LFI 31-40</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="lfiptrno"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="lfiptrnt" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="lfiptrnth" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="lfiptrnfr" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="lfiptrnfv" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="lfiptrnsx"><a href="#">Payload 06</a></li>
+							<li class="btn" id="lfiptrnsvn"><a href="#">Payload 07</a></li>
+							<li class="btn" id="lfiptrngt"><a href="#">Payload 08</a></li>
+							<li class="btn" id="lfiptrnnn"><a href="#">Payload 09</a></li>
+							<li class="btn" id="lfiptftn"><a href="#">Payload 10</a></li>
+                        </ul>
+                    </li>
+					<li><a href="#" class="sub">LFI 41-50</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="lfiptftnx"><a href="#">Payload 01</a></li>
+                            <li class="btn" id="lfiptftntw" ><a href="#">Payload 02</a></li>
+                            <li class="btn" id="lfiptftnth" ><a href="#">Payload 03</a></li>
+                            <li class="btn" id="lfiptftnfr" ><a href="#">Payload 04</a></li>
+							<li class="btn" id="lfiptftnfv" ><a href="#">Payload 05</a></li>
+                            <li class="btn" id="lfiptftnsx"><a href="#">Payload 06</a></li>
+							<li class="btn" id="lfiptftnsvn"><a href="#">Payload 07</a></li>
+							<li class="btn" id="lfiptftngt"><a href="#">Payload 08</a></li>
+							<li class="btn" id="lfiptftnn"><a href="#">Payload 09</a></li>
+							<li class="btn" id="lfiptftnff"><a href="#">Payload 10</a></li>
+                        </ul>
+                    </li>
+                
+                </ul>
+            </li> 
+        </ul>
+    </li>
+            <li>
+                <a href="#" class="menulink" id="waf" style="padding-left:6%;">WAF Bypass</a>
+				
+               <ul id="sqloptions">
+			   
+			   <li><a href="#" class="sub">Basic WAF</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="bscwf1"><a href="#">/*!50000ORDER*/</a></li>
+							<li class="btn" id="bscwf2"><a href="#">/*!50000BY*/</a></li>
+							<li class="btn" id="bscwf3"><a href="#">/*!50000UNION*/</a></li>
+							<li class="btn" id="bscwf4"><a href="#">/*!50000SELECT*/</a></li>
+							<li class="btn" id="bscwf5"><a href="#">/*!50000G_CAT*/</a></li>
+							<li class="btn" id="bscwf6"><a href="#">/*!50000FROM*/</a></li>
+							<li class="btn" id="bscwf7"><a href="#">/*!50000WHERE*/</a></li>
+							<li class="btn" id="bscwf8"><a href="#">/*!50000I_SCHE*/</a></li>
+							<li class="btn" id="bscwf9"><a href="#">/*!50000Ccat*/</a></li>
+							<li class="btn" id="bscwf10"><a href="#">/*!50000ALL*/</a></li>
+                           
+                        </ul>
+                    </li>
+					
+                    <li><a href="#" class="sub">Order By</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="ordrp1"><a href="#">Payload 01</a></li>
+							<li class="btn" id="ordrp2"><a href="#">Payload 02</a></li>
+							<li class="btn" id="ordrp3"><a href="#">Payload 03</a></li>
+							<li class="btn" id="ordrp4"><a href="#">Payload 04</a></li>
+							<li class="btn" id="ordrp5"><a href="#">Payload 05</a></li>
+                       
+                        </ul>
+                    </li>
+  
+					<li><a href="#" class="sub">Select Union</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="unon1"><a href="#">Payload 01</a></li>
+							<li class="btn" id="unon2"><a href="#">Payload 02</a></li>
+							<li class="btn" id="unon3"><a href="#">Payload 03</a></li>
+							<li class="btn" id="unon4"><a href="#">Payload 04</a></li>
+							<li class="btn" id="unon5"><a href="#">Payload 05</a></li>
+							<li class="btn" id="unon6"><a href="#">Payload 06</a></li>
+							<li class="btn" id="unon7"><a href="#">Payload 07</a></li>
+							<li class="btn" id="unon8"><a href="#">Payload 08</a></li>
+							<li class="btn" id="unon9"><a href="#">Payload 09</a></li>
+							<li class="btn" id="unon10"><a href="#">Payload 10</a></li>
+                           
+                        </ul>
+                    </li>
+					<li><a href="#" class="sub">DB Schema</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+							<li class="btn" id="dtbss1"><a href="#">Payload 01</a></li>
+							<li class="btn" id="dtbss2"><a href="#">Payload 02</a></li>
+							<li class="btn" id="dtbss3"><a href="#">Payload 03</a></li>
+							<li class="btn" id="dtbss4"><a href="#">Payload 04</a></li>
+							<li class="btn" id="dtbss5"><a href="#">Payload 05</a></li>
+                              
+                        </ul>
+                    </li>
+                    <li><a href="#" class="sub">Table Schema</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="tblsm1"><a href="#">Payload 01</a></li>
+							<li class="btn" id="tblsm2"><a href="#">Payload 02</a></li>
+							<li class="btn" id="tblsm3"><a href="#">Payload 03</a></li>
+							<li class="btn" id="tblsm4"><a href="#">Payload 04</a></li>
+							<li class="btn" id="tblsm5"><a href="#">Payload 05</a></li>
+							                            
+                        </ul>
+                    </li>
+					<li><a href="#" class="sub">Cols Schema</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="clmssm1"><a href="#">Payload 01</a></li>
+							<li class="btn" id="clmssm2"><a href="#">Payload 02</a></li>
+							<li class="btn" id="clmssm3"><a href="#">Payload 03</a></li>
+							<li class="btn" id="clmssm4"><a href="#">Payload 04</a></li>
+							<li class="btn" id="clmssm5"><a href="#">Payload 05</a></li>
+							                            
+                        </ul>
+                    </li>
+                
+				            <li>
+                <a href="#" class="sub">Convert State</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+				
+                    <li><a href="#" class="sub">GC DataBase</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="csgdbd1"><a href="#">Payload 01</a></li>
+							<li class="btn" id="csgdbd2"><a href="#">Payload 02</a></li>
+							<li class="btn" id="csgdbd3"><a href="#">Payload 03</a></li>
+							<li class="btn" id="csgdbd3"><a href="#">Payload 04</a></li>
+							<li class="btn" id="csgdbd5"><a href="#">Payload 05</a></li>
+							
+                        </ul>
+                    </li>
+  
+					<li><a href="#" class="sub">GC Table</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                            <li class="btn" id="csgdt1"><a href="#">Payload 01</a></li>
+							<li class="btn" id="csgdt2"><a href="#">Payload 02</a></li>
+							<li class="btn" id="csgdt3"><a href="#">Payload 03</a></li>
+							<li class="btn" id="csgdt4"><a href="#">Payload 04</a></li>
+							<li class="btn" id="csgdt5"><a href="#">Payload 05</a></li>
+                       
+                        </ul>
+                    </li>
+					<li><a href="#" class="sub">GC Column</a>
+                        <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+							<li class="btn" id="csgdc1"><a href="#">Payload 01</a></li>
+							<li class="btn" id="csgdc2"><a href="#">Payload 02</a></li>
+							<li class="btn" id="csgdc3"><a href="#">Payload 03</a></li>
+							<li class="btn" id="csgdc4"><a href="#">Payload 04</a></li>
+							<li class="btn" id="csgdc5"><a href="#">Payload 05</a></li>          
+                        </ul>
+                    </li>
+               
+                </ul>
+            </li> 
+			
+                </ul>
+            </li> 
+
+	    <li>
+        <a href="#" class="menulink" id="coding" style="padding-left:8%;">En|De Code</a>
+        <ul>
+			<li><a href="#" class="sub" >Hex</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="strtohex" ><a href="#">Hex Encode</a></li>
+					<li class="btn" id="hextostr" ><a href="#">Hex Decode</a></li>
+                </ul>
+            </li>
+			<li><a href="#" class="sub" >Base64</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="base64" ><a href="#">Base64 Encode</a></li>
+                    <li class="btn" id="base64decode" ><a href="#">Base64 Decode</a></li>
+                </ul>
+            </li>
+
+			<li><a href="#" class="sub" >URL</a>
+                <ul style="overflow: hidden; display: block; height: 0px; z-index: 66; opacity: 0.009009009009009009;">
+                    <li class="btn" id="urlencode" ><a href="#">URL Encode</a></li>
+					<li class="btn" id="urldecode" ><a href="#">URL Decode</a></li>
+                </ul>
+            </li>
+            <li class="btn" id="md5" ><a href="#">MD5 Hash</a></li>
+            <li class="btn" id="sha1" ><a href="#">SHA1 Hash</a></li>
+            <li class="btn" id="rot13" ><a href="#">ROT13 Hash</a></li>
+
+        </ul>
+    </li>
+	
+    <li>
+        <a href="#" class="menulink" align="center">Extra Menu</a>
+        <ul>
+ 
+            <li class="btn" id="reverse" ><a href="#">Reverse</a></li>
+            <li class="btn" id="as" ><a href="#">Add Slash</a></li>
+            <li class="btn" id="ss" ><a href="#">Strip Slash</a></li>
+            <li class="btn" id="stripspace" ><a href="#">Strip Spaces</a></li>
+            
+        </ul>
+    </li>
+
+
+<!--
+    <li><a class="menulink" id="execute" style="text-align:center;">Execute</a></li>
+-->
+</ul>
+
+
+</div>
+
+<div>
+<br><br><br>
+        Change Order by
+        <button class="btn" id ="incorder">+</button>
+        <button class="btn" id ="decorder">-</button>
+        &nbsp;
+
+    Increase/Decrease number
+    <select class="btn" id="dropdown">
+      <option value="int">Int</option>
+      <option value="hex">Hex</option>
+      <option value="oct">Octal</option>
+      <option value="alpha">Alphabet</option>
+      <option value="alnum">AlNum</option>
+    </select>
+    <button class="btn" id ="inc4number">+</button>
+    <button class="btn" id ="dec4number">-</button>
+    <br>
+
+<!--
+<br><br><br>
+    Increase Order by
+    <button class="btn" id ="incnumber">+</button>
+    <button class="btn" id ="decnumber">-</button>
+-->
+
+    <div>
+        <div style="float:left">
+            <textarea id="text_field" name="text_field" rows="5" cols="75" style="margin: 0px; width: 669px; height: 71px;"></textarea>
+        </div>
+        <div style="float:right">
+            <button class="btn" id="loadurl" style="margin-top:0px"><img src="load.png"></button><br>
+            <button class="btn" id="spliturl" style=""><img src="split.gif"></button><br>
+            <button class="btn" id="execute" style=""><img src="go.png"></button><br><br>
+            <button class="btn" id="incheight" style="width:20px">+</button>
+            <button class="btn" id="decheight" style="width:20px">-</button>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript" src = "alert.js"></script>
+
+  </body>
+</html>
